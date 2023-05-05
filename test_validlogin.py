@@ -21,6 +21,7 @@ class HappyPath():
         self.driver.maximize_window()
         WebDriverWait(self.driver,5).until(ec.visibility_of_element_located(By.CSS_SELECTOR,"ul.nav-right > li:nth-child(2) > a" ))
         self.driver.find_element(By.CSS_SELECTOR,"ul.nav-right > li:nth-child(2) > a").click()
+        
 
 
     def teardown_method(self,method):
