@@ -16,14 +16,17 @@ class HappyPath():
         self.driver = webdriver.Chrome(ChromeDriverManager.install())
         self.vars = {}
     
+    def teardown_method(self,method):
+        self.driver.quit()
+    
     def test_login(self):
         self.driver.get(globalConstants.URL)
         self.driver.maximize_window()
         WebDriverWait(self.driver,5).until(ec.visibility_of_element_located(By.CSS_SELECTOR,"ul.nav-right > li:nth-child(2) > a" ))
         self.driver.find_element(By.CSS_SELECTOR,"ul.nav-right > li:nth-child(2) > a").click()
+        assert 1 == 2
         
 
 
-    def teardown_method(self,method):
-        self.driver.quit()
+    
 
