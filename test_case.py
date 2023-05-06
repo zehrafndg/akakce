@@ -21,7 +21,7 @@ class TestCase():
     self.driver.quit()
   
   def test_case(self):
-    #kullanıcı bilgileri ile login olur
+    #kullanıcı bilgileri ile login olunur.
     self.driver.get(globalConstants.URL)
     self.driver.maximize_window()
     WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/header/div[2]/div[1]/a[2]")))
@@ -37,26 +37,26 @@ class TestCase():
     sleep(1)
     assert "https://www.akakce.com/" == self.driver.current_url
 
-    #arama yapar
+    #arama yapalır.
     WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/header/div[3]/form/span/input")))
     self.driver.find_element(By.XPATH,"/html/body/div[1]/header/div[3]/form/span/input").click()
     self.driver.find_element(By.XPATH,"/html/body/div[1]/header/div[3]/form/span/input").send_keys("iphone")
     WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/header/div[3]/form/button")))
     self.driver.find_element(By.XPATH,"/html/body/div[1]/header/div[3]/form/button").click()
 
-    #ilk ürünü seçer ve ürüne gider
+    #ilk ürün seçilir ve ürüne gidilir.
     self.driver.execute_script("window.scrollTo(0,100)")
     sleep(2)
     WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[2]/ul/li[1]/a/span/span[5]/b")))
     self.driver.find_element(By.XPATH,"/html/body/div[2]/ul/li[1]/a/span/span[5]/b").click()
 
-    #ürünü  takip listesine ekler
+    #ürün takip listesine eklenir.
     self.driver.execute_script("window.scrollTo(0,500)")
     sleep(2)
     WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, "/html/body/main/div[1]/div/div[3]/div/div/span")))
     self.driver.find_element(By.XPATH,"/html/body/main/div[1]/div/div[3]/div/div/span").click()
 
-    #ürün takip listesinde mi diye kontrol eder
+    #ürün takip listesinde mi diye kontrol edilir.
     WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.CSS_SELECTOR, "#H_f_v8")))
     self.driver.find_element(By.CSS_SELECTOR,"#H_f_v8").click()
     self.driver.execute_script("window.scrollTo(0,200)")
